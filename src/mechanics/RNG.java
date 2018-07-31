@@ -10,7 +10,7 @@ public class RNG {
 		return num;
 	}
 	
-	public static int randomRange(int min, int max) {//format: RNG.randomRange(min,max)
+	public static int randomNumber(int min, int max) {//format: RNG.randomRange(min,max)
 		Random rng = new Random();
 		int numrange = rng.nextInt(max - min + 1) + min;
 		return numrange;

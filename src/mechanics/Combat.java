@@ -9,8 +9,8 @@ public class Combat {
 		Scanner keyboard = new Scanner(System.in);
 		int playerHealth = (Player.health);
 		int playerAttack = (Player.attack);
-		int enemyHealth = RNG.randomRange(30, 50);
-		int enemyAttack = RNG.randomRange(25, 35);
+		int enemyHealth = RNG.randomNumber(30, 50);
+		int enemyAttack = RNG.randomNumber(25, 35);
 		int chance;	
 		combatloop: while (enemyHealth > 0 && playerHealth > 0) {
 			System.out.println("----------------------------------------------");
@@ -28,7 +28,7 @@ public class Combat {
 				if (chance <= 4) {
 					System.out.println("You missed!");
 				} else {
-					int realAttack = RNG.randomRange(playerAttack - 10, playerAttack + 10);
+					int realAttack = RNG.randomNumber(playerAttack - 10, playerAttack + 10);
 					enemyHealth -= realAttack;
 					System.out.println("You have hit the enemy for " + realAttack + " damage.");
 				}
@@ -38,7 +38,7 @@ public class Combat {
 				if (chance <= 2) {
 					System.out.println("You couldn't heal!");
 				} else {
-					int heal = RNG.randomRange(20, 30);
+					int heal = RNG.randomNumber(20, 30);
 					playerHealth += heal;
 					if (playerHealth > 100)
 						playerHealth = 100;
@@ -59,7 +59,7 @@ public class Combat {
 				System.out.println("That is an invalid input. The enemy gets a free hit.");
 			}
 			if (enemyHealth > 0) {
-				int realEnemyAttack = RNG.randomRange(enemyAttack - 5, enemyAttack + 5);
+				int realEnemyAttack = RNG.randomNumber(enemyAttack - 5, enemyAttack + 5);
 				playerHealth -= realEnemyAttack;
 				System.out.println("The enemy has hit you for " + realEnemyAttack + " damage.");
 			}
