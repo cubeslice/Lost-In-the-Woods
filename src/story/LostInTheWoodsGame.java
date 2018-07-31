@@ -1,13 +1,13 @@
 package story;
 
-import java.util.Scanner;
-
 import mechanics.Objects;
+import java.util.Scanner;
 
 import java.util.Random;
 
 public class LostInTheWoodsGame {
 	public static void main(String args[]) {
+		System.out.println(Objects.rng.randomNumber(5)); //rng test remove this
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Instructions:\n"
