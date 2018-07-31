@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class LostInTheWoodsGame {
-	public static void main(String args[]) {
+	public static void main(String args[]) {//yeet
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Instructions:\n"
