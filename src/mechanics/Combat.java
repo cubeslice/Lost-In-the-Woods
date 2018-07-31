@@ -11,7 +11,7 @@ public class Combat {
 		int playerHealth = (Player.health);
 		int playerAttack = (Player.attack);
 		int enemyHealth = RNG.randomRange(30, 50);
-		int enemyAttack = RNG.randomRange(20, 35);
+		int enemyAttack = RNG.randomRange(25, 35);
 		int chance;
 		combatloop: while(enemyHealth>0 && playerHealth>0) {
 			System.out.println("----------------------------------------------");
@@ -42,7 +42,7 @@ public class Combat {
 					System.out.println("You couldn't heal!");
 				}
 				else {
-					int heal = RNG.randomRange(10, 30);
+					int heal = RNG.randomRange(20, 30);
 					playerHealth += heal;
 					if(playerHealth>100)
 						playerHealth = 100;
@@ -51,7 +51,7 @@ public class Combat {
 				break;
 			case 3:
 				chance = RNG.randomNumber(20);
-				if(chance <= 1) {
+				if(chance == 1) {
 					System.out.println("You have successfully run away!");
 					enemyHealth=0;
 					break combatloop;
@@ -70,7 +70,7 @@ public class Combat {
 			}
 		}
 		if(playerHealth > 0) {
-			System.out.println("We have bested the enemy!");
+			System.out.println("You have bested the enemy!");
 			
 		} else {
 			System.out.println("You died.");
