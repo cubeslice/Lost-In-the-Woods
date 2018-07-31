@@ -1,9 +1,5 @@
 package story;
 
-import mechanics.Combat;
-import mechanics.Objects;
-import mechanics.RNG;
-
 import java.util.Scanner;
 
 import java.util.Random;

@@ -11,12 +11,11 @@ public class Combat {
 		int playerHealth = (Player.health);
 		int playerAttack = (Player.attack);
 		int enemyHealth = RNG.randomRange(30, 50);
-		int enemyAttack = RNG.randomRange(10, 30);
+		int enemyAttack = RNG.randomRange(20, 35);
 		int chance;
 		combatloop: while(enemyHealth>0 && playerHealth>0) {
 			System.out.println("----------------------------------------------");
 			System.out.println("\tYour Health: " + playerHealth);
-			System.out.println("\tYour Attack Power: " +playerAttack);
 			System.out.println("\tEnemy Health: " + enemyHealth);
 			System.out.println("\n\tWhat would you like to do?");
 			System.out.println("\t1. Attack");
@@ -28,7 +27,7 @@ public class Combat {
 			switch(opt) {
 			case 1:
 				chance = RNG.randomNumber(20);
-				if(chance <= 1) {
+				if(chance <= 4) {
 					System.out.println("You missed!");
 				}
 				else {
@@ -39,11 +38,11 @@ public class Combat {
 				break;
 			case 2: 
 				chance = RNG.randomNumber(20);
-				if(chance <= 1) {
+				if(chance <= 2) {
 					System.out.println("You couldn't heal!");
 				}
 				else {
-					int heal = RNG.randomRange(5, 25);
+					int heal = RNG.randomRange(10, 30);
 					playerHealth += heal;
 					if(playerHealth>100)
 						playerHealth = 100;
@@ -51,7 +50,7 @@ public class Combat {
 				}
 				break;
 			case 3:
-				chance = RNG.randomNumber(5);
+				chance = RNG.randomNumber(20);
 				if(chance <= 1) {
 					System.out.println("You have successfully run away!");
 					enemyHealth=0;
@@ -71,7 +70,7 @@ public class Combat {
 			}
 		}
 		if(playerHealth > 0) {
-			System.out.println("We have beaten the enemy!");
+			System.out.println("We have bested the enemy!");
 			
 		} else {
 			System.out.println("You died.");
