@@ -1,12 +1,8 @@
 package story;
 
 import java.util.Scanner;
-
-import livingthings.*;
 import mechanics.Combat;
 import mechanics.RNG;
-
-import java.util.Random;
 
 public class LostInTheWoodsGame {
 	public static void main(String args[]) {
@@ -57,8 +53,7 @@ public class LostInTheWoodsGame {
 					windowdeath = true;
 				}
 				if (option3 == 3) {
-					Random rand = new Random();
-					int a = rand.nextInt(5) + 1;
+					int a = RNG.randomNumber(5) + 1;
 					if (a == 1) {
 						System.out.println("After yanking on the lock, you manage to break it open. ");
 						trapdoor = true;
@@ -85,8 +80,8 @@ public class LostInTheWoodsGame {
 								+ "2- Thrust at his stomach.\n" + "3- Feint left, go right.\n" + "4- Run away.");
 						int option5 = keyboard.nextInt();
 						if (option5 == 1) {
-							Random rand = new Random();
-							int a = rand.nextInt(10) + 1;
+			
+							int a = RNG.randomNumber(10) + 1;
 							if (a == 1) {
 								System.out.println("You slash at his head. The man tries to dodge, but you manage "
 										+ "to cut his throat. As you lay there panting, you  notice a stairwell "
@@ -100,8 +95,8 @@ public class LostInTheWoodsGame {
 							}
 						}
 						if (option5 == 2) {
-							Random rand = new Random();
-							int a = rand.nextInt(4) + 1;
+			
+							int a = RNG.randomNumber(4) + 1;
 							if (a == 1) {
 								System.out.println("You thrust at his stomach. The man tries to dodge, but you manage "
 										+ "to stab him. As you lay there panting, you notice a stairwell "
@@ -115,8 +110,7 @@ public class LostInTheWoodsGame {
 							}
 						}
 						if (option5 == 3) {
-							Random rand = new Random();
-							int a = rand.nextInt(2) + 1;
+							int a = RNG.randomNumber(2) + 1;
 							if (a == 1) {
 								System.out.println("You feint left. As you do, the man dodges right, and your "
 										+ "follow up cut catches him in the neck. As you lay there panting, you"
@@ -226,8 +220,7 @@ public class LostInTheWoodsGame {
 				int option3 = keyboard.nextInt();
 				if (option3 == 1) {
 					System.out.println("You keep driving, too scared to do anything else. ");
-					Random rand = new Random();
-					int a = rand.nextInt(3) + 1;
+					int a = RNG.randomNumber(3) + 1;
 					if (a == 1) {
 						System.out.println("Eventually, you see the creature let go. ");
 						cop = true;
