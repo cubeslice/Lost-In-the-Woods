@@ -4,10 +4,16 @@ import java.util.Random;
 
 public class RNG {
 	
-	public int randomNumber(int a) {
+	public static int randomNumber(int a) {
 		Random rng = new Random();
-		int rnum = rng.nextInt(a);
-		return rnum;
+		int num = rng.nextInt(a);
+		return num;
+	}
+	
+	public static int randomRange(int min, int max) {
+		Random rng = new Random();
+		int numrange = rng.nextInt(max - min + 1) + min;
+		return numrange;
 	}
 	
 }
