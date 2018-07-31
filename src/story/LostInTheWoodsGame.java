@@ -2,10 +2,13 @@ package story;
 
 import java.util.Scanner;
 
+import livingthings.Player;
+import mechanics.RNG;
+
 import java.util.Random;
 
 public class LostInTheWoodsGame {
-	public static void main(String args[]) {//yeet
+	public static void main(String args[]) {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Instructions:\n"
@@ -19,7 +22,7 @@ public class LostInTheWoodsGame {
 		int option1 = keyboard.nextInt();
 		if (option1 == 1) {
 			boolean windowdeath = false;
-			boolean doordeath = false;
+			boolean doorfight = false;
 			boolean catacombs = false;
 			boolean trapdoor = false;
 			System.out.println("You head towards the hut, and eventually reach it. It's old and worn down, "
@@ -28,7 +31,7 @@ public class LostInTheWoodsGame {
 					+ "3- Go to the back garden.\n" + "4- Circle around the hut.");
 			int option2 = keyboard.nextInt();
 			if (option2 == 1) {
-				doordeath = true;
+				doorfight = true;
 			}
 			if (option2 == 2) {
 				windowdeath = true;
@@ -46,7 +49,7 @@ public class LostInTheWoodsGame {
 						+ "3- Try to open the trapdoor. \n" + "4- Explore the garden more.");
 				int option3 = keyboard.nextInt();
 				if (option3 == 1) {
-					doordeath = true;
+					doorfight = true;
 				}
 				if (option3 == 2) {
 					windowdeath = true;
@@ -134,7 +137,7 @@ public class LostInTheWoodsGame {
 						trapdoor = true;
 					}
 					if (option4 == 4) {
-						doordeath = true;
+						doorfight = true;
 					}
 				}
 			}
@@ -144,10 +147,10 @@ public class LostInTheWoodsGame {
 						+ " your throat. You see him smile as you begin to lose your grip on life.\n"
 						+ "Restart the game.");
 			}
-			if (doordeath == true) {
+			if (doorfight == true) {
 				System.out.println("You enter through the door. It makes a loud creak as you open it. "
-						+ "A man with a knife awaits you, and plunges his weapon into your throat. "
-						+ "You see him smile as \nyou lose your grip on life.\n" + "Restart the game.");
+						+ "A man with a knife awaits you, and you get ready to fight.");
+				
 			}
 			if (trapdoor == true) {
 				System.out.println("As you open the trapdoor, you are greeted by air that reeks of death. Steeling"
