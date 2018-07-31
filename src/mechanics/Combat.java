@@ -7,7 +7,7 @@ import livingthings.*;
 public class Combat {
 	
 	public static boolean beatEnemy() {
-		Scanner input = new Scanner(System.in);
+		Scanner keyboard = new Scanner(System.in);
 		int playerHealth = (Player.health);
 		int playerAttack = (Player.attack);
 		int enemyHealth = RNG.randomRange(30, 50);
@@ -23,7 +23,7 @@ public class Combat {
 			System.out.println("\t3. Run!");
 			System.out.println("----------------------------------------------");
 			
-			int opt = input.nextInt();
+			int opt = keyboard.nextInt();
 			switch(opt) {
 			case 1:
 				chance = RNG.randomNumber(20);
