@@ -5,13 +5,13 @@ import java.util.Scanner;
 import livingthings.*;
 
 public class Combat {
-	public static boolean beatEnemy() {
+	public boolean beatEnemy(){
 		Scanner keyboard = new Scanner(System.in);
 		int playerHealth = (Player.health);
 		int playerAttack = (Player.attack);
 		int enemyHealth = RNG.randomNumber(30, 50);
 		int enemyAttack = RNG.randomNumber(25, 35);
-		int chance;	
+		int chance;
 		combatloop: while (enemyHealth > 0 && playerHealth > 0) {
 			System.out.println("----------------------------------------------");
 			System.out.println("\tYour Health: " + playerHealth);
