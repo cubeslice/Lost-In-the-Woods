@@ -6,7 +6,7 @@ import livingthings.*;
 
 public class Combat {
 	
-	public static void main(String[] args) {
+	public static boolean beatEnemy() {
 		Scanner input = new Scanner(System.in);
 		int playerHealth = (Player.health);
 		int playerAttack = (Player.attack);
@@ -71,9 +71,11 @@ public class Combat {
 		}
 		if(playerHealth > 0) {
 			System.out.println("You have bested the enemy!");
+			return true;
 			
 		} else {
 			System.out.println("You died.");
+			return false;
 		}
 	}
 }
