@@ -5,14 +5,15 @@ import java.util.Scanner;
 import livingthings.*;
 
 public class Combat {
-	public boolean beatEnemy(){
+	public static boolean beatEnemy(int power){ //Combat.beatEnemy(powerlevel)
+		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		int playerHealth = (Player.health);
 		int playerAttack = (Player.attack);
-		int enemyHealth = RNG.randomNumber(30, 50);
-		int enemyAttack = RNG.randomNumber(25, 35);
+		int enemyHealth = RNG.randomNumber(power - 5, power + 5);
+		int enemyAttack = RNG.randomNumber(power - 10, power - 5);
 		int chance;
-		combatloop: while (enemyHealth > 0 && playerHealth > 0) {
+		while (enemyHealth > 0 && playerHealth > 0) {
 			System.out.println("----------------------------------------------");
 			System.out.println("\tYour Health: " + playerHealth);
 			System.out.println("\tEnemy Health: " + enemyHealth);
@@ -25,7 +26,7 @@ public class Combat {
 			switch (opt) {
 			case 1:
 				chance = RNG.randomNumber(20);
-				if (chance <= 4) {
+				if (chance <= 2) {
 					System.out.println("You missed!");
 				} else {
 					int realAttack = RNG.randomNumber(playerAttack - 10, playerAttack + 10);
@@ -50,7 +51,7 @@ public class Combat {
 				if (chance == 1) {
 					System.out.println("You have successfully run away!");
 					enemyHealth = 0;
-					break combatloop;
+					break;
 				} else {
 					System.out.println("You couldn't run away!");
 				}
@@ -67,7 +68,6 @@ public class Combat {
 		if (playerHealth > 0) {
 			System.out.println("You have bested the enemy!");
 			return true;
-
 		} else {
 			System.out.println("You died.");
 			return false;

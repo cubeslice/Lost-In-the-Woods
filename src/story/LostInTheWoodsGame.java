@@ -11,9 +11,6 @@ import java.util.Random;
 public class LostInTheWoodsGame {
 	public static void main(String args[]) {
 		
-		Combat x = new Combat();
-		Player.health=90;
-		
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Instructions:\n"
@@ -155,11 +152,14 @@ public class LostInTheWoodsGame {
 			if (doorfight == true) {
 				System.out.println("You enter through the door. It makes a loud creak as you open it. "
 						+ "A man with a knife awaits you, and you get ready to fight.");
-				x.beatEnemy();
-				if (x.beatEnemy()) {
+				if (Combat.beatEnemy(30)) {
+					doorfight = false;
 					catacombs = true;
 				}
-				else System.out.println("Restart the game");
+				else {
+					System.out.println("Restart the game");
+					doorfight = false;
+				}
 			}
 			if (trapdoor == true) {
 				System.out.println("As you open the trapdoor, you are greeted by air that reeks of death. Steeling"
