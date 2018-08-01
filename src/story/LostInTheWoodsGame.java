@@ -503,23 +503,27 @@ public class LostInTheWoodsGame {
 								+ "\t2. Run away.\n"
 								+ "\t3. Stay still.\n"
 								+ "\t4. Try to climb a tree.");
-						int opt1 = keyboard.nextInt();
-						if (opt1>4) {
-							opt1 = 4;
+						opt = keyboard.nextInt();
+						if (opt>4) {
+							opt = 4;
 						}
-						if (opt1<1) {
-							opt1=1;
+						if (opt<1) {
+							opt=1;
 						}
-						switch (opt1) {
+						switch (opt) {
 						case 1:
 							System.out.println("You charge at the dirt golem, a shout on your lips.");
+							if (Combat.beatEnemy(70,false)) {
+								
+							}
+							else 
 							break;
 						case 2:
 							System.out.println("You try to run away, but the dirt golem shoots a stone projectile at your head."
-									+ " You feel a sudden sharp pain near your temple, and everything goes black.\nRestart the game.");
+									+ " You feel a sudden sharp pain near your temple, and everything goes black.");
 							break;
 						case 3:
-							System.out.println("");
+							System.out.println("You stay perfectly still, not moving a muscle. With one swing ");
 							
 						}
 					}
