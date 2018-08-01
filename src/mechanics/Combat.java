@@ -5,7 +5,7 @@ import java.util.Scanner;
 import livingthings.*;
 
 public class Combat {
-	public static boolean beatEnemy(int power){ //Combat.beatEnemy(powerlevel)
+	public static boolean beatEnemy(int power, boolean canRun){ //Combat.beatEnemy(powerlevel, can run?)
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		int playerHealth = (Player.health);
@@ -47,14 +47,17 @@ public class Combat {
 				}
 				break;
 			case 3:
-				chance = RNG.randomNumber(20);
-				if (chance == 1) {
-					System.out.println("You have successfully run away!");
-					enemyHealth = 0;
-					break;
-				} else {
-					System.out.println("You couldn't run away!");
-				}
+				if(canRun == true) {
+					chance = RNG.randomNumber(20);
+					if (chance == 3) {
+						System.out.println("You have successfully run away!");
+						enemyHealth = 0;
+						break;
+					} else {
+						System.out.println("You couldn't run away!");
+					}
+				} else
+					System.out.println("You cannot run away from this enemy!");
 				break;
 			default:
 				System.out.println("That is an invalid input. The enemy gets a free hit.");
