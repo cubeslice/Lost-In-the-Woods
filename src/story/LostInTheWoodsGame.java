@@ -497,8 +497,30 @@ public class LostInTheWoodsGame {
 					if (Combat.beatEnemy(50,false)) {
 						System.out.println(
 								"As you pull your knife from the creature, it lets out a strangled scream and disintegrates into dirt. "
-								+ "You dust yourself off and go back into the woods. ");
-						
+								+ "You dust yourself off and go back into the woods. You don't get far before an even bigger dirt creature"
+								+ " pops up. Here are your options:\n"
+								+ "\t1. Fight the dirt creature.\n"
+								+ "\t2. Run away.\n"
+								+ "\t3. Stay still.\n"
+								+ "\t4. Try to climb a tree.");
+						int opt1 = keyboard.nextInt();
+						if (opt1>4) {
+							opt1 = 4;
+						}
+						if (opt1<1) {
+							opt1=1;
+						}
+						switch (opt1) {
+						case 1:
+							System.out.println("You charge at the dirt golem, a shout on your lips.");
+							break;
+						case 2:
+							System.out.println("You try to run away, but the dirt golem shoots a stone projectile at your head."
+									+ " You feel a sudden sharp pain near your temple, and everything goes black.\nRestart the game.");
+							break;
+						case 3:
+							
+						}
 					}
 				}
 				else System.out.println("The creature engulfs your body, slowly suffocating you. As your vision slowly fades, you feel yourself"
