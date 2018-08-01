@@ -422,13 +422,14 @@ public class LostInTheWoodsGame {
 				if (dirtCreature) {
 					System.out.println(
 							"As you go back into the forest, a chill goes through your spine, and a deep, rumbling sound emanates from the ground."
-							+ " The dirt a couple feet in front of you starts shifting, and a dirt creature pops out of the ground.");
+							+ " The dirt a couple feet in front of you starts shifting, and a dirt creature pops \nout of the ground.");
 					if (Combat.beatEnemy(50)) {
 						System.out.println(
 								"As you pull your knife from the creature, it lets out a strangled scream and disintegrates into dirt. "
 										+ "You dust yourself off and go back into the woods. ");
 					}
-					
+					else System.out.println("The creature engulfs your body, slowly suffocating you. As your vision slowly fades, you feel yourself"
+							+ " sinking into the ground.");
 				}
 			}
 		}
