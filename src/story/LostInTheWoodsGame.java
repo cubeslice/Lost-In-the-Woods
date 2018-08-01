@@ -512,7 +512,10 @@ public class LostInTheWoodsGame {
 							break;
 						case 2:
 							System.out.println("You try to run away, but the dirt golem shoots a stone projectile at your head."
-									+ " You feel a sudden sharp pain near your temple, and you ");
+									+ " You feel a sudden sharp pain near your temple, and everything goes black.\nRestart the game.");
+							break;
+						case 3:
+							
 						}
 					}
 				}
