@@ -24,6 +24,7 @@ public class LostInTheWoodsGame {
 		if(opt<1) {
 			opt = 1;
 		}
+		mainSwitch:
 		switch (opt) {
 		case 1:
 			boolean windowdeath = false;
@@ -439,8 +440,11 @@ public class LostInTheWoodsGame {
 									"\"Why...\" the man croaks as he falls onto his knees. His body falls onto the floor. You go through his jacket and find the keys "
 											+ "to the pickup truck and a map titled \"The Lost Woods.\" You start the car, find where you are on the map, and find your way out of the woods.");
 							System.out.println("You have achieved the \"hijack\" ending.");
+							break mainSwitch;
+						} else {
+							System.out.println("Restart the game.");
+							break mainSwitch;
 						}
-						break;
 					case 3:
 						sneakPassedDriver = true;
 						break;
