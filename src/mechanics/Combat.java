@@ -11,7 +11,7 @@ public class Combat {
 		int playerHealth = (Player.health);
 		int playerAttack = (Player.attack);
 		int enemyHealth = RNG.randomNumber(power - 5, power + 5);
-		int enemyAttack = RNG.randomNumber(power - 10, power - 5);
+		int enemyAttack = RNG.randomNumber(power - 20, power - 5);
 		int chance;
 		while (enemyHealth > 0 && playerHealth > 0) {
 			System.out.println("----------------------------------------------");
@@ -67,9 +67,11 @@ public class Combat {
 		}
 		if (playerHealth > 0) {
 			System.out.println("You have bested the enemy!");
+			System.out.println("----------------------------------------------");
 			return true;
 		} else {
 			System.out.println("You died.");
+			System.out.println("----------------------------------------------");
 			return false;
 		}
 	}
