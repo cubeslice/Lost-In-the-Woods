@@ -311,16 +311,17 @@ public class LostInTheWoodsGame {
 			boolean beatWolf = false;
 			boolean runPassedDriver = false;
 			boolean sneakPassedDriver = false;
+			boolean dirtCreature = false;
 			System.out.println(
-					"You start wandering aimlessly through the forest. While doing so, you see what looks like a very"
-							+ "old path. As you reach it, a wolf steps out from the shadows and snarls "
-							+ "at you. Your heart jumps as you:");
-			System.out.println("\t1. Pull out your knife. \n" + "\t2. Hide behind the tree to your right. \n"
+					"You start wandering aimlessly through the forest. While doing so, you head towards a worn and beaten down path. "
+					+"You see a knife left just left of the path. As you reach for the knife, \nyou see a vicious wolf, its eyes "
+					+ "trained on yours. Here are your options:\n");
+			System.out.println("\t1. Pick up the knife. \n" + "\t2. Hide behind the tree to your right. \n"
 					+ "\t3. Yell at the wolf. \n" + "\t4. Freeze in place.");
 			opt = keyboard.nextInt();
 			switch (opt) {
 			case 1:
-				System.out.println("You pull out your knife and get ready to fight the wolf.");
+				System.out.println("You pick up the  knife and get ready to fight the wolf.");
 				if (Combat.beatEnemy(40)) {
 					beatWolf = true;
 				}
@@ -348,7 +349,8 @@ public class LostInTheWoodsGame {
 			if (beatWolf) {
 				System.out.println(
 						"The wolf crumples to the ground, and you allow yourself to catch your breath. After you are ready, you start jogging,"
-								+ " careful to dodge the low hanging branches. You enter a clearing where there are very few trees. You can see a relatively clean pickup truck.");
+								+ " careful to dodge the low hanging branches. You enter a clearing where there are very \nfew trees. "
+								+ "You can see a relatively clean pickup truck.");
 				System.out.println("\t1. Inspect the truck. \n" + "\t2. Sneak past the truck. \n"
 						+ "\t3. Run past the truck. \n" + "\t4. Go back into the forest.");
 				opt = keyboard.nextInt();
@@ -393,15 +395,7 @@ public class LostInTheWoodsGame {
 					runPassedDriver = true;
 					break;
 				case 4:
-					System.out.println(
-							"As you go back into the forest, a chill goes through your spine and you hear a sound straight out of a horror movie. The dirt a couple feet in "
-									+ "front of you starts shifting, and a dirt creature pops out of the ground.");
-					if (Combat.beatEnemy(50)) {
-						System.out.println(
-								"As you pull your knife from the creature, it lets out a strangled scream and disintegrates into dirt. "
-										+ "You dust yourself off and go back into the woods.");
-					}
-				
+					dirtCreature = true;
 					}
 				if (sneakPassedDriver) {
 					int a = RNG.randomNumber(8);
@@ -412,12 +406,8 @@ public class LostInTheWoodsGame {
 										+ "to the floor, you notice a red substance slowly seeping into the grass. \"Is that... my blood?\" you wonder as your vison fades to black.");
 					} else
 						System.out.println(
-								"You get by the truck without the driver noticing. As you near the woods on the other side of the clearing, a chill goes through your spine and "
-										+ "you hear a sound straight out of a horror movie. The dirt a couple feet in front of you starts shifting, and a dirt creature pops out of the ground.");
-					if (Combat.beatEnemy(50)) {
-						System.out.println(
-								"As you pull your knife from the creature, it lets out a strangled scream and disintegrates into dirt. "
-										+ "You dust yourself off and go back into the woods.");
+								"You get by the truck without the driver noticing. ");
+					dirtCreature = true;
 					}
 				}
 				if (runPassedDriver) {
@@ -429,7 +419,18 @@ public class LostInTheWoodsGame {
 										+ "to the floor, you notice a red substance slowly seeping into the grass. \"Is that... my blood?\" you wonder as your vison fades to black.");
 					}
 				}
+				if (dirtCreature) {
+					System.out.println(
+							"As you go back into the forest, a chill goes through your spine, and a deep, rumbling sound emanates from the ground."
+							+ " The dirt a couple feet in front of you starts shifting, and a dirt creature pops out of the ground.");
+					if (Combat.beatEnemy(50)) {
+						System.out.println(
+								"As you pull your knife from the creature, it lets out a strangled scream and disintegrates into dirt. "
+										+ "You dust yourself off and go back into the woods. ");
+					}
+					
+				}
 			}
 		}
 	}
-}
+
