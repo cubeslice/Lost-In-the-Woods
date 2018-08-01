@@ -519,12 +519,13 @@ public class LostInTheWoodsGame {
 									+ " You feel a sudden sharp pain near your temple, and everything goes black.\nRestart the game.");
 							break;
 						case 3:
+							System.out.println("");
 							
 						}
 					}
 				}
 				else System.out.println("The creature engulfs your body, slowly suffocating you. As your vision slowly fades, you feel yourself"
-						+ " sinking into the ground.\nRestart the game.");
+						+ " sinking into the ground.");
 			}
 		
 	}
