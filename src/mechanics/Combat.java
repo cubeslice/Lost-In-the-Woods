@@ -43,7 +43,7 @@ public class Combat {
 				if (chance < 15) {
 					System.out.println("You couldn't heal!");
 				} else {
-					int heal = RNG.randomNumber(30, 40);
+					int heal = RNG.randomNumber(power-10, power);
 					playerHealth += heal;
 					if (playerHealth > 100)
 						playerHealth = 100;
