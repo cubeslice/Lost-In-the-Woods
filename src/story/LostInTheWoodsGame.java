@@ -180,8 +180,8 @@ public class LostInTheWoodsGame {
 				}
 				switch (opt) {
 				case 1:
-					System.out.println("You strike at the figure. It passes through harmlessly. The"
-							+ "figure grabs your head, and everything turns black.\nRestart the game.");
+					System.out.println("You ready your knife, and get ready to fight the figure.");
+					
 					break;
 				case 3:
 					System.out.println("You slowly step away, avoiding eye contact with the figure. Just as you think "
@@ -196,9 +196,9 @@ public class LostInTheWoodsGame {
 							+ "vision darkens.\nRestart the game.");
 					break;
 				case 2:
-					System.out.println("You sprint away from the figure. When you cannot see the figure anymore, you"
-							+ " catch your breath. Looking ahead, you see daylight, and with that, safety.\n"
-							+ "You have achieved the catacombs ending.");
+					System.out.println("You sprint away from the figure. You don't get far before the figure grabs you, "
+							+ "draining the life from your body.");
+					death = true;
 					break;
 				}
 			}
