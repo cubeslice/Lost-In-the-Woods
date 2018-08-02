@@ -1,6 +1,8 @@
 package story;
 
 import java.util.Scanner;
+
+import livingthings.Player;
 import mechanics.Combat;
 import mechanics.RNG;
 
@@ -8,6 +10,7 @@ public class LostInTheWoodsGame {
 	public static void main(String args[]) {
 
 		@SuppressWarnings("resource")
+		boolean death = false;
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Instructions:\n"
 				+ "Input only the given integers. Anything else will not work. Put your integer at the bottom "
@@ -27,7 +30,7 @@ public class LostInTheWoodsGame {
 		mainSwitch:
 		switch (opt) {
 		case 1:
-			boolean windowdeath = false;
+			boolean windowfight = false;
 			boolean doorfight = false;
 			boolean catacombs = false;
 			boolean trapdoor = false;
@@ -47,13 +50,14 @@ public class LostInTheWoodsGame {
 				doorfight = true;
 				break;
 			case 2:
-				windowdeath = true;
+				windowfight = true;
 				break;
 			case 4:
 				System.out.println("As you circle around the hut, you walk past an open window. As you do, you make"
 						+ " eye contact with a man sitting inside. He springs up, knife in hand, and with \none "
 						+ "smooth motion throws it towards your head. The knife enters your eye socket. As "
-						+ "you die out, you hear the man laughing.\nRestart the game.");
+						+ "you die out, you hear the man laughing.");
+				death = true;
 				break;
 			case 3:
 				System.out.println("You go to the back garden. There is a window looking into the hut, along with a"
@@ -72,7 +76,7 @@ public class LostInTheWoodsGame {
 					doorfight = true;
 					break;
 				case 2:
-					windowdeath = true;
+					windowfight = true;
 					break;
 				case 3:
 					int a = RNG.randomNumber(5) + 1;
@@ -102,65 +106,16 @@ public class LostInTheWoodsGame {
 					}
 					switch (opt) {
 					case 1:
-						System.out.println("You burst through the door, knife in hand. You see a man sitting on"
-								+ " a chair inside. He springs to his feet, wielding a knife of his own. "
-								+ "\nHere are your options:\n" + "\t1. Slash at his head.\n"
-								+ "\t2. Thrust at his stomach.\n" + "\t3. Feint left, go right.\n" + "\t4. Run away.");
-						opt = keyboard.nextInt();
-						if(opt>4) {
-							opt = 4;
+						System.out.println("You burst through the door with a knife. A man with a knife springs to his feet,"
+								+ " ready to fight you.");
+						if (Combat.beatEnemy(30, false)) {
+							System.out.println("You remove your knife from the man's throat. You then notice a stairway leading into the "
+									+ "darkness. You enter.");
 						}
-						if(opt<1) {
-							opt = 1;
-						}
-						switch (opt) {
-						case 1:
-							a = RNG.randomNumber(10) + 1;
-							if (a == 1) {
-								System.out.println("You slash at his head. The man tries to dodge, but you manage "
-										+ "to cut his throat. As you lay there panting, you  notice a stairwell "
-										+ "descending \ninto the darkness, with the scent of death in the air."
-										+ " You descend.");
-								catacombs = true;
-							} else {
-								System.out.println("You slash at his head. The man easily avoids your attack, "
-										+ "and thrusts his knife into your chest. As you bleed out, you hear "
-										+ "his laughter.\n Restart the game.");
-							}
+						else death = true;
 							break;
-						case 2:
-							a = RNG.randomNumber(4) + 1;
-							if (a == 1) {
-								System.out.println("You thrust at his stomach. The man tries to dodge, but you manage "
-										+ "to stab him. As you lay there panting, you notice a stairwell "
-										+ "descending \ninto the darkness, with the scent of death in the air. "
-										+ "You descend.");
-								catacombs = true;
-							} else {
-								System.out.println("You thrust at his stomach. The man easily avoids your attack, "
-										+ "and thrusts his knife into your chest. As you bleed out, you hear "
-										+ "his laughter.\n Restart the game.");
-							}
-							break;
-						case 3:
-							a = RNG.randomNumber(2) + 1;
-							if (a == 1) {
-								System.out.println("You feint left. As you do, the man dodges right, and your "
-										+ "follow up cut catches him in the neck. As you lay there panting, you"
-										+ "notice a stairwell descending \ninto the darkness, with the scent of "
-										+ "death in the air. You descend.");
-								catacombs = true;
-							}
-							break;
-						case 4:
-							System.out.println("You try to run away, but the man chases you down, tackling "
-									+ "you to the ground. He stabs you in the chest. As you bleed out, "
-									+ "you hear his laughter.\nRestart the game.");
-							break;
-						}
-						break;
 					case 2:
-						windowdeath = true;
+						windowfight = true;
 						break;
 					case 3:
 						System.out.println("You quickly unlock the trapdoor with the key. ");
@@ -174,21 +129,25 @@ public class LostInTheWoodsGame {
 				}
 				break;
 			}
-			if (windowdeath == true) {
+			if (windowfight == true) {
 				System.out.println("You enter through the window. Your arms and legs get cut badly as you "
-						+ "climb through the window. A man with a knife awaits you, and plunges his weapon \ninto"
-						+ " your throat. You see him smile as you begin to lose your grip on life.\n"
-						+ "Restart the game.");
+						+ "climb through the window. A man with a knife awaits you, and you get ready to fight.");
+				Player.attack=10;
+				Player.health=30;
+				if (Combat.beatEnemy(30, false)) {
+					System.out.println("");
+				}
 			}
 			if (doorfight == true) {
 				System.out.println("You enter through the door. It makes a loud creak as you open it. "
 						+ "A man with a knife awaits you, and you get ready to fight.");
-				if (Combat.beatEnemy(40, true)) {
+				Player.attack = 10;
+				if (Combat.beatEnemy(30, true)) {
 					doorfight = false;
 					catacombs = true;
 				} else {
-					System.out.println("Restart the game");
 					doorfight = false;
+					death=true;
 				}
 			}
 			if (trapdoor == true) {
@@ -469,7 +428,9 @@ public class LostInTheWoodsGame {
 						System.out.println(
 								"\"Hey! What do you think you are doing!\" says a gruff voice behind you. You stop running and turn around and see the pickup truck driver "
 										+ "slowly walking toward you, pistol pointed straight at your heart.\n You hear a loud crack, and a sharp pain shoots through your body. As you fall "
-										+ "to the floor, you notice a red substance slowly seeping into the grass. \"Is that... my blood?\" you wonder as your vison fades to black.");
+										+ "to the floor, you notice a red substance slowly seeping into the grass. \"Is that... my blood?\" "
+										+ "you wonder as your vison fades to black.");
+						death = true;
 					} else {
 						System.out.println("You get by the truck without the driver noticing. ");
 						dirtCreature = true;
@@ -483,7 +444,9 @@ public class LostInTheWoodsGame {
 					System.out.println(
 							"\"Hey! What do you think you are doing!\" says a gruff voice behind you. You slowly turn around and see the pickup truck driver "
 									+ "slowly walking toward you, pistol pointed straight at your heart.\n You hear a loud crack, and a sharp pain shoots through your body. As you fall "
-									+ "to the floor, you notice a red substance\n slowly seeping into the grass. \"Is that... my blood?\" you wonder as your vison fades to black.");
+									+ "to the floor, you notice a red substance\n slowly seeping into the grass. \"Is that... my blood?\" "
+									+ "you wonder as your vison fades to black.");
+					death = true;
 				}
 			}
 			if (dirtCreature) {
@@ -514,24 +477,32 @@ public class LostInTheWoodsGame {
 						case 1:
 							System.out.println("You charge at the dirt golem, a shout on your lips.");
 							if (Combat.beatEnemy(70,false)) {
-								
+							System.out.println("As you plunge your knife into the golem, you feel a sudden sharp stab of pain in your arm."
+									+ " Looking down, you see that your arm is covered by a layer of dirt. The dirt moves from your arm,"
+									+ " to your torso, to your head. You look down. You are now completely made of dirt.");	
 							}
 							else 
 							break;
 						case 2:
 							System.out.println("You try to run away, but the dirt golem shoots a stone projectile at your head."
 									+ " You feel a sudden sharp pain near your temple, and everything goes black.");
+							death = true;
 							break;
 						case 3:
-							System.out.println("You stay perfectly still, not moving a muscle. With one swing ");
-							
+							System.out.println("You stay perfectly still, not moving a muscle. With one swing, the golem knocks off your head.");
+						death = true;
+						break;
 						}
 					}
 				}
 				else System.out.println("The creature engulfs your body, slowly suffocating you. As your vision slowly fades, you feel yourself"
 						+ " sinking into the ground.");
+				death = true;
 			}
 		
 	}
+		if (death == true) {
+			System.out.println("Restart the game.");
+		}
 }
 }
