@@ -496,7 +496,8 @@ public class LostInTheWoodsGame {
 					System.out.println(
 							"As you pull your knife from the creature, it lets out a strangled scream and disintegrates into dirt. "
 									+ "You dust yourself off and go back into the woods. \nYou don't get far before the dirt before you starts"
-									+ " to bubble. A deep, loud roar shakes the ground, and a humongous dirt creature rises out of the ground.\n"
+									+ " to bubble. A deep, loud roar shakes your bones, and a humongous dirt creature rises out of the ground.\n"
+									+ "\"You have some nerve human. Prepare to die!\"\n"
 									+ "\t1. Fight the dirt creature.\n" + "\t2. Run away.\n" + "\t3. Stay still.\n"
 									+ "\t4. Try to climb a tree.");
 					int opt1 = keyboard.nextInt();
@@ -518,8 +519,8 @@ public class LostInTheWoodsGame {
 											+ " \n\n You have achieved the \"golem\" ending.");
 						} else
 							System.out.println(
-									"With one quick strike, the golem breaks your legs. As you lay there, bruised, broken, and bloody, you prepare yourself as "
-									+ "the golem delivers the death blow.");
+									"With one quick strike, the golem breaks your legs. As you lay there, bruised, broken, and bloody, you "
+									+ "hear the golem say, \"You have fought well. Now die!\"");
 						death = true;
 						break mainSwitch;
 					case 2:
