@@ -432,8 +432,10 @@ public class LostInTheWoodsGame {
 										+ "jumps out of the driver's seat, hand grasping his knife. \"What in the world do you think you are doing?\" he shouts.");
 						if (Combat.beatEnemy(90, false, true, true)) {
 							System.out.println(
-									"\"Why...\" the man croaks as he falls onto his knees. His body falls onto the floor. You go through his jacket and find the keys "
-											+ "to the pickup truck and a map titled \"The Lost Woods.\" You start the car, find where you are on the map, and find your way out of the woods.");
+									"\"Why...\" the man croaks as he falls onto his knees. His body falls onto the floor. You go through his "
+									+ "jacket and find the keys "
+											+ "to the pickup truck and a map titled \"The Lost Woods.\" "
+											+ "You start the car, \nfind where you are on the map, and find your way out of the woods.");
 							System.out.println("You have achieved the \"hijack\" ending.");
 							break mainSwitch;
 						} else {
