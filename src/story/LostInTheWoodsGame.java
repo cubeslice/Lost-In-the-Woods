@@ -261,8 +261,8 @@ public class LostInTheWoodsGame {
 						System.out.print(
 								"The creature crawls aross the top of the car. When it is right above you, the creature "
 										+ "reaches through the window and grabs your throat. You try to break its grip, but its rough "
-										+ "hand would not let go. Just as \nyou think you might escape from its grip, you crash into a tree."
-										+ "\nRestart the game.");
+										+ "hand would not let go. Just as \nyou think you might escape from its grip, you crash into a tree.");
+					death = true;
 					break;
 				case 2:
 					System.out.println("By driving left and right, you manage to shake the creature off your car. ");
@@ -278,10 +278,11 @@ public class LostInTheWoodsGame {
 							"You open the door and jump out of the car. However, the creature jumps with you, grabbing your"
 									+ " throat as you hit the ground. You struggle for a brief moment, but you are overpowered by the "
 									+ "sheer strength \nof the creature. As your vision goes dark, you hear the creature let out a bloodcurdling"
-									+ " howl.\nRestart the game.");
+									+ " howl.");
+					death = true;
 					break;
 				}
-<<<<<<< HEAD
+
 				if (outsidedeath == true) {
 					System.out.println("At first the creature does not move. But as you take a step, it charges at you,"
 							+ " savagely clawing your throat. You try to resist, but the creature succeeds in \nripping out your throat."
@@ -289,7 +290,8 @@ public class LostInTheWoodsGame {
 					death = true;
 				}
 				if (cop == true) {
-=======
+
+			}
 			}
 			if (outsidedeath == true) {
 				System.out.println("At first the creature does not move. But as you take a step, it charges at you,"
@@ -306,7 +308,6 @@ public class LostInTheWoodsGame {
 				int option4 = keyboard.nextInt();
 				switch (option4) {
 				case 1:
->>>>>>> e860c83024d231094b85790ffc5fc37d41f79d44
 					System.out.println(
 							"You keep driving, determined to run the man. You hear him yell, \"Stop!\" but you continue "
 									+ "heading towards him. The man pulls out a gun and aims it at your head. Before you have time "
@@ -323,7 +324,7 @@ public class LostInTheWoodsGame {
 					System.out.println(
 							"You stop the car and get out. The man comes closer, and you see that he is a cop."
 									+ " He asks \"Is everything all right?\" And for the first time in a while, you feel safe.\n"
-									+ "You have achieved the car ending.");
+									+ "You have achieved the \"cop ending.\"");
 					break;
 				case 4:
 					System.out.println(
