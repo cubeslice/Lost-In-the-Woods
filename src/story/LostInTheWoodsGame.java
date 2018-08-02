@@ -180,7 +180,7 @@ public class LostInTheWoodsGame {
 				}
 				switch (opt) {
 				case 1:
-					System.out.println("You ready your knife, and get ready to fight the figure.");
+					System.out.println("You ready your knife, and get ready to fight the figure. ");
 					
 					break;
 				case 3:
