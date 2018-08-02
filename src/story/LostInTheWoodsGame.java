@@ -514,16 +514,17 @@ public class LostInTheWoodsGame {
 								+ "\t2. Run away.\n"
 								+ "\t3. Stay still.\n"
 								+ "\t4. Try to climb a tree.");
-						opt = keyboard.nextInt();
-						if (opt>4) {
-							opt = 4;
+						int opt1 = keyboard.nextInt();
+						if (opt1>4) {
+							opt1 = 4;
 						}
-						if (opt<1) {
-							opt=1;
+						if (opt1<1) {
+							opt1=1;
 						}
-						switch (opt) {
+						switch (opt1) {
 						case 1:
 							System.out.println("You charge at the dirt golem, a shout on your lips.");
+<<<<<<< HEAD
 							if (Combat.beatEnemy(70,false)) {
 							System.out.println("As you plunge your knife into the golem, you feel a sudden sharp stab of pain in your arm."
 									+ " Looking down, you see that your arm is covered by a layer of dirt. The dirt moves from your arm,"
@@ -540,6 +541,16 @@ public class LostInTheWoodsGame {
 							System.out.println("You stay perfectly still, not moving a muscle. With one swing, the golem knocks off your head.");
 						death = true;
 						break;
+=======
+							break;
+						case 2:
+							System.out.println("You try to run away, but the dirt golem shoots a stone projectile at your head."
+									+ " You feel a sudden sharp pain near your temple, and everything goes black.\nRestart the game.");
+							break;
+						case 3:
+							System.out.println("");
+							
+>>>>>>> parent of c6b17d5... dirt golem
 						}
 					}
 				}
