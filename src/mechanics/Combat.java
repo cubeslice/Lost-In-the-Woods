@@ -15,7 +15,7 @@ public class Combat {
 		int chance;
 		if (boss) {
 			enemyHealth = 100;
-			enemyAttack = 50;
+			enemyAttack = RNG.randomNumber(35,50);
 		}
 		while (enemyHealth > 0 && playerHealth > 0) {
 			System.out.println("----------------------------------------------");
@@ -68,7 +68,7 @@ public class Combat {
 			}
 			if (canMiss) {
 				chance = RNG.randomNumber(8);
-				if (chance < 4) {
+				if (chance < 1) {
 					System.out.println("The enemy has missed!");
 				} else
 					if (enemyHealth > 0) {

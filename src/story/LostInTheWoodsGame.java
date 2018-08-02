@@ -33,6 +33,7 @@ public class LostInTheWoodsGame {
 			boolean doorfight = false;
 			boolean catacombs = false;
 			boolean trapdoor = false;
+			boolean noKnife = false;
 			System.out.println("You head towards the hut, and eventually reach it. It's old and worn down, "
 					+ "with a beaten door, cracked windows, and a back garden. Here are your options:");
 			System.out.println("\t1. Enter through the door.\n" + "\t2. Enter through a window.\n"
@@ -105,10 +106,11 @@ public class LostInTheWoodsGame {
 					}
 					switch (opt) {
 					case 1:
+						noKnife = false;
 						System.out.println(
 								"You burst through the door with a knife. A man with a knife springs to his feet,"
 										+ " ready to fight you.");
-						if (Combat.beatEnemy(40, false, false)) {
+						if (Combat.beatEnemy(40, false, false,false)) {
 							System.out.println(
 									"You remove your knife from the man's throat. You then notice a stairway leading into the "
 											+ "darkness. You enter.");
@@ -120,6 +122,7 @@ public class LostInTheWoodsGame {
 					case 3:
 						System.out.println("You quickly unlock the trapdoor with the key. ");
 						trapdoor = true;
+						noKnife=false;
 						break;
 					case 4:
 						doorfight = true;
@@ -134,7 +137,7 @@ public class LostInTheWoodsGame {
 						+ "climb through the window. A man with a knife awaits you, and you get ready to fight.");
 				Player.attack = 10;
 				Player.health = 30;
-				if (Combat.beatEnemy(40, false, false)) {
+				if (Combat.beatEnemy(40, false, false,false)) {
 					System.out.println(
 							"As you get off of the man, you see a stairway leading into the darkness. You descend.");
 					catacombs = true;
@@ -151,7 +154,7 @@ public class LostInTheWoodsGame {
 						+ "A man with a knife awaits you, and you get ready to fight.");
 
 				Player.attack = 10;
-				if (Combat.beatEnemy(40, true, false)) {
+				if (Combat.beatEnemy(40, true, false,false)) {
 					doorfight = false;
 					catacombs = true;
 				} else {
@@ -181,7 +184,12 @@ public class LostInTheWoodsGame {
 				switch (opt) {
 				case 1:
 					System.out.println("You ready your knife, and get ready to fight the figure. ");
-					
+					if (noKnife) {
+						Player.attack = 10;}
+					if (Combat.beatEnemy(90,false,true,true)) {
+						System.out.println("You pull your knife from the figure. You run as far away as you can, until you see "
+								+ "daylight. As you step in the sun, you finally feel safe.\nYou have achieved the \"catacombs\" ending.");
+					}
 					break;
 				case 3:
 					System.out.println("You slowly step away, avoiding eye contact with the figure. Just as you think "
@@ -339,7 +347,7 @@ public class LostInTheWoodsGame {
 			switch (opt) {
 			case 1:
 				System.out.println("You pick up the  knife and get ready to fight the wolf.");
-				if (Combat.beatEnemy(40, true, false)) {
+				if (Combat.beatEnemy(40, true, false,false)) {
 					beatWolf = true;
 					break;
 				} else
@@ -406,7 +414,7 @@ public class LostInTheWoodsGame {
 						System.out.println(
 								"Slowly, you take a large piece of wood and smash the window. The sound of shattered glass pierces the air. The man "
 										+ "jumps out of the driver's seat, hand grasping his knife. \"What in the world do you think you are doing?\" he shouts.");
-						if (Combat.beatEnemy(90, false, true)) {
+						if (Combat.beatEnemy(90, false, true,true)) {
 							System.out.println(
 									"\"Why...\" the man croaks as he falls onto his knees. His body falls onto the floor. You go through his jacket and find the keys "
 											+ "to the pickup truck and a map titled \"The Lost Woods.\" You start the car, find where you are on the map, and find your way out of the woods.");
@@ -465,7 +473,7 @@ public class LostInTheWoodsGame {
 				System.out.println(
 						"As you go back into the forest, a chill goes through your spine, and a deep, rumbling sound emanates from the ground."
 								+ " The dirt a couple feet in front of you starts shifting, and a dirt creature pops \nout of the ground.");
-				if (Combat.beatEnemy(50, false, false)) {
+				if (Combat.beatEnemy(50, false, false,false)) {
 					System.out.println(
 							"As you pull your knife from the creature, it lets out a strangled scream and disintegrates into dirt. "
 									+ "You dust yourself off and go back into the woods. You don't get far before an even bigger dirt creature"
@@ -481,7 +489,7 @@ public class LostInTheWoodsGame {
 					switch (opt1) {
 					case 1:
 						System.out.println("You charge at the dirt golem, a shout on your lips.");
-						if (Combat.beatEnemy(70, false, true)) {
+						if (Combat.beatEnemy(70, false, true,true)) {
 							System.out.println(
 									"As you plunge your knife into the golem, you feel a sudden sharp stab of pain in your arm."
 											+ " Looking down, you see that your arm is covered by a layer of dirt. The dirt moves from your arm,"
