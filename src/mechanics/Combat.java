@@ -5,7 +5,7 @@ import java.util.Scanner;
 import livingthings.*;
 
 public class Combat {
-	public static boolean beatEnemy(int power, boolean canRun, boolean canMiss){ //Combat.beatEnemy(powerlevel, can run?)
+	public static boolean beatEnemy(int power, boolean canRun, boolean canMiss, boolean boss){ //Combat.beatEnemy(powerlevel, can run?, can miss, boss?)
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		int playerHealth = (Player.health);
@@ -13,6 +13,10 @@ public class Combat {
 		int enemyHealth = RNG.randomNumber(power - 5, power + 5);
 		int enemyAttack = RNG.randomNumber(power - 15, power - 5);
 		int chance;
+		if (boss) {
+			int enemyHealth = 100;
+			int enemyAttack = 45;
+		}
 		while (enemyHealth > 0 && playerHealth > 0) {
 			System.out.println("----------------------------------------------");
 			System.out.println("\tYour Health: " + playerHealth);
