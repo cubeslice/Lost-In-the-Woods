@@ -110,7 +110,7 @@ public class LostInTheWoodsGame {
 						System.out.println(
 								"You burst through the door with a knife. A man with a knife springs to his feet,"
 										+ " ready to fight you.");
-						if (Combat.beatEnemy(40, false, false,false)) {
+						if (Combat.beatEnemy(40, false, false, false)) {
 							System.out.println(
 									"You remove your knife from the man's throat. You then notice a stairway leading into the "
 											+ "darkness. You enter.");
@@ -122,7 +122,7 @@ public class LostInTheWoodsGame {
 					case 3:
 						System.out.println("You quickly unlock the trapdoor with the key. ");
 						trapdoor = true;
-						noKnife=false;
+						noKnife = false;
 						break;
 					case 4:
 						doorfight = true;
@@ -137,7 +137,7 @@ public class LostInTheWoodsGame {
 						+ "climb through the window. A man with a knife awaits you, and you get ready to fight.");
 				Player.attack = 10;
 				Player.health = 30;
-				if (Combat.beatEnemy(40, false, false,false)) {
+				if (Combat.beatEnemy(40, false, false, false)) {
 					System.out.println(
 							"As you get off of the man, you see a stairway leading into the darkness. You descend.");
 					catacombs = true;
@@ -154,7 +154,7 @@ public class LostInTheWoodsGame {
 						+ "A man with a knife awaits you, and you get ready to fight.");
 
 				Player.attack = 10;
-				if (Combat.beatEnemy(40, true, false,false)) {
+				if (Combat.beatEnemy(40, true, false, false)) {
 					doorfight = false;
 					catacombs = true;
 				} else {
@@ -185,10 +185,12 @@ public class LostInTheWoodsGame {
 				case 1:
 					System.out.println("You ready your knife, and get ready to fight the figure. ");
 					if (noKnife) {
-						Player.attack = 10;}
-					if (Combat.beatEnemy(90,false,true,true)) {
-						System.out.println("You pull your knife from the figure. You run as far away as you can, until you see "
-								+ "daylight. As you step in the sun, you finally feel safe.\nYou have achieved the \"catacombs\" ending.");
+						Player.attack = 10;
+					}
+					if (Combat.beatEnemy(90, false, true, true)) {
+						System.out.println(
+								"You pull your knife from the figure. You run as far away as you can, until you see "
+										+ "daylight. As you step in the sun, you finally feel safe.\nYou have achieved the \"catacombs\" ending.");
 					}
 					break;
 				case 3:
@@ -206,8 +208,9 @@ public class LostInTheWoodsGame {
 					death = true;
 					break mainSwitch;
 				case 2:
-					System.out.println("You sprint away from the figure. You don't get far before the figure grabs you, "
-							+ "draining the life from your body.");
+					System.out
+							.println("You sprint away from the figure. You don't get far before the figure grabs you, "
+									+ "draining the life from your body.");
 					death = true;
 					break mainSwitch;
 				}
@@ -278,47 +281,47 @@ public class LostInTheWoodsGame {
 									+ " howl.\nRestart the game.");
 					break;
 				}
-				if (outsidedeath == true) {
-					System.out.println("At first the creature does not move. But as you take a step, it charges at you,"
-							+ " savagely clawing your throat. You try to resist, but the creature succeeds in \nripping out your throat."
-							+ " Before you die, you hear the creature let out a bloodcurdling howl.\nRestart the game.");
-				}
-				if (cop == true) {
-					System.out.println(
-							"You keep driving, lookng for any sign of civilization. After what seems like an eternity, you "
-									+ "see a silhouetted man wearing what seems to be blue clothes. Here are your options:\n"
-									+ "\t1. Run him over.\n" + "\t2. Drive around him.\n"
-									+ "\t3. Stop the car and see who he is.\n" + "\t4. Find a different route.");
-					int option4 = keyboard.nextInt();
-					switch (option4) {
-					case 1:
-						System.out.println(
-								"You keep driving, determined to run the man. You hear him yell, \"Stop!\" but you continue "
-										+ "heading towards him. The man pulls out a gun and aims it at your head. Before you have time "
-										+ "to process anything \nelse, he fires his gun, and you feel a piercing pain in your head.\nRestart "
-										+ "the game.");
-						break;
-					case 2:
-						System.out.println(
-								"You try to drive around him, but he yells \"Stop!\" as you pass him. You keep going,"
-										+ " not wanting to slow down. The man takes out a gun, and seeing this, you hesitate for a "
-										+ "second before you crash into a tree.\nRestart the game.");
-						break;
-					case 3:
-						System.out.println(
-								"You stop the car and get out. The man comes closer, and you see that he is a cop."
-										+ " He asks \"Is everything all right?\" And for the first time in a while, you feel safe.\n"
-										+ "You have achieved the car ending.");
-						break;
-					case 4:
-						System.out.println(
-								"You put the car in reverse, trying to find a different route. You hear the man"
-										+ " yell \"Stop!\" before pulling out a gun. Panicked, you try to drive away, but you"
-										+ " your car crashes into a large tree.\nRestart the game.");
-						break;
-					}
-				}
+			}
+			if (outsidedeath == true) {
+				System.out.println("At first the creature does not move. But as you take a step, it charges at you,"
+						+ " savagely clawing your throat. You try to resist, but the creature succeeds in \nripping out your throat."
+						+ " Before you die, you hear the creature let out a bloodcurdling howl.\nRestart the game.");
 				break;
+			}
+			if (cop == true) {
+				System.out.println(
+						"You keep driving, lookng for any sign of civilization. After what seems like an eternity, you "
+								+ "see a silhouetted man wearing what seems to be blue clothes. Here are your options:\n"
+								+ "\t1. Run him over.\n" + "\t2. Drive around him.\n"
+								+ "\t3. Stop the car and see who he is.\n" + "\t4. Find a different route.");
+				int option4 = keyboard.nextInt();
+				switch (option4) {
+				case 1:
+					System.out.println(
+							"You keep driving, determined to run the man. You hear him yell, \"Stop!\" but you continue "
+									+ "heading towards him. The man pulls out a gun and aims it at your head. Before you have time "
+									+ "to process anything \nelse, he fires his gun, and you feel a piercing pain in your head.\nRestart "
+									+ "the game.");
+					break;
+				case 2:
+					System.out.println(
+							"You try to drive around him, but he yells \"Stop!\" as you pass him. You keep going,"
+									+ " not wanting to slow down. The man takes out a gun, and seeing this, you hesitate for a "
+									+ "second before you crash into a tree.\nRestart the game.");
+					break;
+				case 3:
+					System.out.println(
+							"You stop the car and get out. The man comes closer, and you see that he is a cop."
+									+ " He asks \"Is everything all right?\" And for the first time in a while, you feel safe.\n"
+									+ "You have achieved the car ending.");
+					break;
+				case 4:
+					System.out.println(
+							"You put the car in reverse, trying to find a different route. You hear the man"
+									+ " yell \"Stop!\" before pulling out a gun. Panicked, you try to drive away, but you"
+									+ " your car crashes into a large tree.\nRestart the game.");
+					break;
+				}
 			}
 			break;
 		case 3:
@@ -348,7 +351,7 @@ public class LostInTheWoodsGame {
 			switch (opt) {
 			case 1:
 				System.out.println("You pick up the  knife and get ready to fight the wolf.");
-				if (Combat.beatEnemy(40, true, false,false)) {
+				if (Combat.beatEnemy(40, true, false, false)) {
 					beatWolf = true;
 					break;
 				} else
@@ -416,7 +419,7 @@ public class LostInTheWoodsGame {
 						System.out.println(
 								"Slowly, you take a large piece of wood and smash the window. The sound of shattered glass pierces the air. The man "
 										+ "jumps out of the driver's seat, hand grasping his knife. \"What in the world do you think you are doing?\" he shouts.");
-						if (Combat.beatEnemy(90, false, true,true)) {
+						if (Combat.beatEnemy(90, false, true, true)) {
 							System.out.println(
 									"\"Why...\" the man croaks as he falls onto his knees. His body falls onto the floor. You go through his jacket and find the keys "
 											+ "to the pickup truck and a map titled \"The Lost Woods.\" You start the car, find where you are on the map, and find your way out of the woods.");
@@ -475,13 +478,14 @@ public class LostInTheWoodsGame {
 				System.out.println(
 						"As you go back into the forest, a chill goes through your spine, and a deep, rumbling sound emanates from the ground."
 								+ " The dirt a couple feet in front of you starts shifting, and a dirt creature pops \nout of the ground.");
-				if (Combat.beatEnemy(50, false, false,false)) {
+				if (Combat.beatEnemy(50, false, false, false)) {
 					System.out.println(
 							"As you pull your knife from the creature, it lets out a strangled scream and disintegrates into dirt. "
 									+ "You dust yourself off and go back into the woods. \nYou don't get far before the dirt before you starts"
 									+ " to bubble. A deep, loud roar shakes the ground, and a humongous dirt creature rises out of the ground.\n "
-									+ "\"Ooh hoo hoo,\" the creature laughs. \"Nooboody passes the dirt gooolem.\"\n" + "\t1. Fight the dirt creature.\n"
-									+ "\t2. Run away.\n" + "\t3. Stay still.\n" + "\t4. Try to climb a tree.");
+									+ "\"Ooh hoo hoo,\" the creature laughs. \"Nooboody passes the dirt gooolem.\"\n"
+									+ "\t1. Fight the dirt creature.\n" + "\t2. Run away.\n" + "\t3. Stay still.\n"
+									+ "\t4. Try to climb a tree.");
 					int opt1 = keyboard.nextInt();
 					if (opt1 > 4) {
 						opt1 = 4;
@@ -492,7 +496,7 @@ public class LostInTheWoodsGame {
 					switch (opt1) {
 					case 1:
 						System.out.println("You charge at the dirt golem, a shout on your lips.");
-						if (Combat.beatEnemy(70, false, true,true)) {
+						if (Combat.beatEnemy(70, false, true, true)) {
 							System.out.println(
 									"As you plunge your knife into the golem, you feel a sudden sharp stab of pain in your arm."
 											+ " Looking down, you see that your arm is\n covered by a layer of dirt. The dirt moves from your arm,"
@@ -500,10 +504,11 @@ public class LostInTheWoodsGame {
 											+ " You open your mouth, and a huge, deep roar shakes the forest. With horror, you realize that you are now the dirt golem."
 											+ " \n\n You have achieved the \"golem\" ending.");
 						} else
-							System.out.println("You stumble back from the golem, exhausted. \"Hoo hooo. Sooo cloose, yet soo far,\" it teases. It stomps toward you, your exhausted "
-									+ "body refusing to move. \"Bye bye!\" it says cheerfully. The golem laughs as he crushes your skull in.");
-							death = true;
-							break mainSwitch;
+							System.out.println(
+									"You stumble back from the golem, exhausted. \"Hoo hooo. Sooo cloose, yet soo far,\" it teases. It stomps toward you, your exhausted "
+											+ "body refusing to move. \"Bye bye!\" it says cheerfully. The golem laughs as he crushes your skull in.");
+						death = true;
+						break mainSwitch;
 					case 2:
 						System.out.println(
 								"You try to run away, but the dirt golem shoots a stone projectile at your head."
@@ -521,10 +526,12 @@ public class LostInTheWoodsGame {
 										+ "tried to climb.");
 						death = true;
 					}
-				} else
+				} else {
 					System.out.println(
 							"The creature engulfs your body, slowly suffocating you. As your vision slowly fades, you feel yourself"
 									+ " sinking into the ground.");
+					death = true;
+				}
 			}
 			death = true;
 		}
