@@ -67,8 +67,8 @@ public class Combat {
 				System.out.println("That is an invalid input. The enemy gets a free hit.");
 			}
 			if (canMiss) {
-				chance = RNG.randomNumber(8);
-				if (chance < 1) {
+				chance = RNG.randomNumber(20);
+				if (chance < 2) {
 					System.out.println("The enemy has missed!");
 				} else
 					if (enemyHealth > 0) {

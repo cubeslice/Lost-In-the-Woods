@@ -195,19 +195,21 @@ public class LostInTheWoodsGame {
 					System.out.println("You slowly step away, avoiding eye contact with the figure. Just as you think "
 							+ "you are out of danger, the figure rushes out at you, and as it touches your \nchest, "
 							+ "you feel as if it is impossible to breath. As you slowly die, you see the figure "
-							+ "fade away into the darkness.\nRestart the game.");
-					break;
+							+ "fade away into the darkness.");
+					death = true;
+					break mainSwitch;
 				case 4:
 					System.out.println("You stand perfectly still, not moving an inch. The figure reaches out, as if"
 							+ " to touch your face. With the figure's hand an inch from your face, you try to \nmove, "
 							+ "but your body refuses to obey you. As the figure's hand reaches your face, your "
-							+ "vision darkens.\nRestart the game.");
-					break;
+							+ "vision darkens.");
+					death = true;
+					break mainSwitch;
 				case 2:
 					System.out.println("You sprint away from the figure. You don't get far before the figure grabs you, "
 							+ "draining the life from your body.");
 					death = true;
-					break;
+					break mainSwitch;
 				}
 			}
 			break;
@@ -266,8 +268,7 @@ public class LostInTheWoodsGame {
 				case 3:
 					System.out.println(
 							"You slam the break. However, you are not wearing a seat belt. Your head cracks against"
-									+ " the steering wheel, and you experience a sudden stab of pain before you are engulfed by darkness."
-									+ "\nRestart the game.");
+									+ " the steering wheel, and you experience a sudden stab of pain before you are engulfed by darkness.");
 					break;
 				case 4:
 					System.out.println(
@@ -354,6 +355,7 @@ public class LostInTheWoodsGame {
 					System.out.println(
 							"The wolf lunges and hits the knife out of your hand. It clatters to the floor. Defenseless, you try to kick at "
 									+ "the wolf, with no avail. It seems to smirk at you, then launches itself at your face.");
+				death = true;
 				break mainSwitch;
 			case 2:
 				System.out.println("You scamper to the right, only to realize there was no tree there. The last thing "
@@ -476,8 +478,9 @@ public class LostInTheWoodsGame {
 				if (Combat.beatEnemy(50, false, false,false)) {
 					System.out.println(
 							"As you pull your knife from the creature, it lets out a strangled scream and disintegrates into dirt. "
-									+ "You dust yourself off and go back into the woods. You don't get far before an even bigger dirt creature"
-									+ " pops up. Here are your options:\n" + "\t1. Fight the dirt creature.\n"
+									+ "You dust yourself off and go back into the woods. \nYou don't get far before the dirt before you starts"
+									+ " to bubble. A deep, loud roar shakes the ground, and a humongous dirt creature rises out of the ground.\n "
+									+ "\"Ooh hoo hoo,\" the creature laughs. \"Nooboody passes the dirt gooolem.\"\n" + "\t1. Fight the dirt creature.\n"
 									+ "\t2. Run away.\n" + "\t3. Stay still.\n" + "\t4. Try to climb a tree.");
 					int opt1 = keyboard.nextInt();
 					if (opt1 > 4) {
@@ -492,10 +495,15 @@ public class LostInTheWoodsGame {
 						if (Combat.beatEnemy(70, false, true,true)) {
 							System.out.println(
 									"As you plunge your knife into the golem, you feel a sudden sharp stab of pain in your arm."
-											+ " Looking down, you see that your arm is covered by a layer of dirt. The dirt moves from your arm,"
-											+ " to your torso, to your head. You look down. You are now completely made of dirt.");
+											+ " Looking down, you see that your arm is\n covered by a layer of dirt. The dirt moves from your arm,"
+											+ " to your torso, to your head. You look down. You are now completely made of dirt.\n"
+											+ " You open your mouth, and a huge, deep roar shakes the forest. With horror, you realize that you are now the dirt golem."
+											+ " \n\n You have achieved the \"golem\" ending.");
 						} else
-							break;
+							System.out.println("You stumble back from the golem, exhausted. \"Hoo hooo. Sooo cloose, yet soo far,\" it teases. It stomps toward you, your exhausted "
+									+ "body refusing to move. \"Bye bye!\" it says cheerfully. The golem laughs as he crushes your skull in.");
+							death = true;
+							break mainSwitch;
 					case 2:
 						System.out.println(
 								"You try to run away, but the dirt golem shoots a stone projectile at your head."
