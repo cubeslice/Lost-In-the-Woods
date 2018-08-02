@@ -14,7 +14,7 @@ public class LostInTheWoodsGame {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Instructions:\n"
 				+ "Input only the given integers. Anything else will not work. Put your integer at the bottom "
-				+ "of the console. Some options are probability based. \nIf your answer is not processed at "
+				+ "of the console. \nSome options are probability based. If your answer is not processed at "
 				+ "first, press enter again. Now, on to the game.");
 		System.out.println(
 				"You are lost in the deep, dark, woods. " + "You see a hut, an old car, and a worn down bike.");
@@ -426,7 +426,7 @@ public class LostInTheWoodsGame {
 										+ "he rolls down the window. \"What is someone like you doing in the\n dangerous woods?\" he asks. \"I got lost,\" you reply. \"What?? How?\" He looks "
 										+ "at you, obviously confused. \"Nevermind then. Do you need a ride out of here?\" Relief fills your body. \"Yes. Thanks man.\"");
 						System.out.println("You have achieved the pickup truck ending.");
-						break;
+						break mainSwitch;
 					case 2:
 						System.out.println(
 								"Slowly, you take a large piece of wood and smash the window. The sound of shattered glass pierces the air. The man "
