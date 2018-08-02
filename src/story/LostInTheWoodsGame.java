@@ -339,7 +339,8 @@ public class LostInTheWoodsGame {
 			System.out.println(
 					"You get on the bike. As you start pedaling, you hear a rustling of leaves. You ignore it, "
 							+ "but soon after, a hunched creature tackles you off the bike. Pinning you to the ground, it tears "
-							+ "out your throat, \nbefore letting out a bloodcurdling howl.\nRestart the game.");
+							+ "out your throat, \nbefore letting out a bloodcurdling howl.");
+			death = true;
 			break;
 		case 4:
 			boolean beatWolf = false;
@@ -518,8 +519,8 @@ public class LostInTheWoodsGame {
 											+ " \n\n You have achieved the \"golem\" ending.");
 						} else
 							System.out.println(
-									"You stumble back from the golem, exhausted. \"Hoo hooo. Sooo cloose, yet soo far,\" it teases. It stomps toward you, your exhausted "
-											+ "body refusing to move. \"Bye bye!\" it says cheerfully. The golem laughs as he crushes your skull in.");
+									"With one quick strike, the golem breaks your legs. As you lay there, bruised, broken, and bloody, you prepare yourself as "
+									+ "the golem delivers the death blow.");
 						death = true;
 						break mainSwitch;
 					case 2:
