@@ -324,7 +324,7 @@ public class LostInTheWoodsGame {
 					System.out.println(
 							"You stop the car and get out. The man comes closer, and you see that he is a cop."
 									+ " He asks \"Is everything all right?\" And for the first time in a while, you feel safe.\n"
-									+ "You have achieved the \"cop ending.\"");
+									+ "You have achieved the \"cop\" ending.");
 					break;
 				case 4:
 					System.out.println(
