@@ -5,7 +5,7 @@ import java.util.Scanner;
 import livingthings.*;
 
 public class Combat {
-	public static boolean beatEnemy(int power, boolean canRun){ //Combat.beatEnemy(powerlevel, can run?)
+	public static boolean beatEnemy(int power, boolean canRun, boolean canMiss){ //Combat.beatEnemy(powerlevel, can run?)
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		int playerHealth = (Player.health);
@@ -36,10 +36,10 @@ public class Combat {
 				break;
 			case 2:
 				chance = RNG.randomNumber(20);
-				if (chance <= 2) {
+				if (chance <15) {
 					System.out.println("You couldn't heal!");
 				} else {
-					int heal = RNG.randomNumber(20, 30);
+					int heal = RNG.randomNumber(30, 40);
 					playerHealth += heal;
 					if (playerHealth > 100)
 						playerHealth = 100;
@@ -49,7 +49,7 @@ public class Combat {
 			case 3:
 				if(canRun == true) {
 					chance = RNG.randomNumber(20);
-					if (chance == 3) {
+					if (chance <= 3) {
 						System.out.println("You have successfully run away!");
 						enemyHealth = 0;
 						break;
@@ -62,6 +62,17 @@ public class Combat {
 			default:
 				System.out.println("That is an invalid input. The enemy gets a free hit.");
 			}
+			if (canMiss) {
+				chance = RNG.randomNumber(8);
+				if (chance < 4) {
+					System.out.println("The enemy has missed!");
+				} else
+					if (enemyHealth > 0) {
+						int realEnemyAttack = RNG.randomNumber(enemyAttack - 5, enemyAttack + 5);
+						playerHealth -= realEnemyAttack;
+						System.out.println("The enemy has hit you for " + realEnemyAttack + " damage.");
+					}
+			} else
 			if (enemyHealth > 0) {
 				int realEnemyAttack = RNG.randomNumber(enemyAttack - 5, enemyAttack + 5);
 				playerHealth -= realEnemyAttack;
@@ -73,8 +84,6 @@ public class Combat {
 			System.out.println("----------------------------------------------");
 			return true;
 		} else {
-			System.out.println("You died.");
-			System.out.println("----------------------------------------------");
 			return false;
 		}
 	}
