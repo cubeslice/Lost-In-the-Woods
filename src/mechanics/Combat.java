@@ -14,8 +14,8 @@ public class Combat {
 		int enemyAttack = RNG.randomNumber(power - 15, power - 5);
 		int chance;
 		if (boss) {
-			int enemyHealth = 100;
-			int enemyAttack = 45;
+			enemyHealth = 100;
+			enemyAttack = 50;
 		}
 		while (enemyHealth > 0 && playerHealth > 0) {
 			System.out.println("----------------------------------------------");
