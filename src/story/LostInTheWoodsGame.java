@@ -281,7 +281,8 @@ public class LostInTheWoodsGame {
 				if (outsidedeath == true) {
 					System.out.println("At first the creature does not move. But as you take a step, it charges at you,"
 							+ " savagely clawing your throat. You try to resist, but the creature succeeds in \nripping out your throat."
-							+ " Before you die, you hear the creature let out a bloodcurdling howl.\nRestart the game.");
+							+ " Before you die, you hear the creature let out a bloodcurdling howl.");
+					death = true;
 				}
 				if (cop == true) {
 					System.out.println(
